@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  jenkins:
+    image: my/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "jenkins_home:/var/jenkins_home"
+      - "./secrets:/run/secrets"
+
+  nginx:
+    image: my/nginx
+    ports:
+      - "80:80"
+
+volumes:
+  jenkins_home:
